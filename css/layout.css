@@ -11,7 +11,7 @@ h1 {font-size:1.8rem;}
 
 /* overall page layout starts here */
 body {
-	font-family:arial, verdana, helvetica 
+	font-family: verdana, arial, helvetica;
 	overflow-x:hidden; /* this is possibly a bit hacky, but stops horizontal scrolling as some sections have gone over 100%, but for now is ok. Mainly caused by me testing rem units */
 }
 
@@ -22,6 +22,7 @@ header {
 	color:#fff;
 	padding-top:1rem;
 	padding-left:1rem;
+	overflow-x:hidden;
 }
 
 #header-inner {
@@ -64,6 +65,7 @@ footer {
 	background-color:blue;
 	color:#fff;
 	padding-left:1rem;
+	overflow-x:hidden;
 
 }
 
