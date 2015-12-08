@@ -1,0 +1,43 @@
+
+/* default css (smallest mobiles etc) */
+.column {
+	clear:both;
+	float:left;
+	width:90%;
+	margin-left:0px;
+	margin-top:1rem;
+	margin-right:1rem;
+}
+
+@media screen and (min-width:420px){
+	.column {
+		clear:none;
+		width:45%;
+	}
+
+	.col3 {
+		clear:both;
+	}
+}
+
+@media screen and (min-width: 600px) {
+
+	.column {
+		width:45%;
+		clear:none;
+	}
+
+}
+
+@media screen and (min-width: 800px){
+.column {
+	margin-left:0px;
+	float:left;
+	width:22%;
+}
+
+.column.first {
+	margin-left:0px;
+}
+
+}
