@@ -1,5 +1,9 @@
-
 /* default css (smallest mobiles etc) */
+
+#columns {
+	clear:both;
+}
+
 .column {
 	clear:both;
 	float:left;
@@ -8,6 +12,52 @@
 	margin-top:1rem;
 	margin-right:1rem;
 }
+
+
+.item {
+	background-color:blue;
+	float:left;
+	height:80px;
+	margin-bottom:0.8rem;
+	background-size:cover;	
+	display:table-cell;
+	vertical-align:middle;
+	border:2px blue solid;
+}
+
+.item p {
+	font-size:0.7rem;
+	text-align:center;
+	margin-top:5px;
+}
+.item p:first-child {
+	margin-top:10px;
+}
+
+.double {
+	width:100%;
+	max-width:100%;
+}
+
+.single {
+	width:47%;
+	max-width:47%;
+}
+
+.itemRight{
+	float:right;
+}
+
+
+.phone-overlay {
+	display:none;
+	background-color:#f1f1f1;
+	height:100%;
+	width:100%;
+	opacity: 0.6;
+	filter: alpha(opacity=60); 
+}
+
 
 @media screen and (min-width:420px){
 	.column {
