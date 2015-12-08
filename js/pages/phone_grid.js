@@ -1,9 +1,16 @@
-// call our function to fire when the document is loaded
+/* function to fire when the document is loaded */
 whenDocumentLoaded(loadPhones());
 
 /* initialise vars */
 
-display_templates = Array( // These are templates for each item in each column. Later will loop through these. This ensures that no matter how many phones are loaded, the pattern of one double-column row followed by two single column rows propogates throughout the columns. This is just a suggesting for layout based on the template I was given, in a production environment phones could be tagged as 'promoted' to give double columns rather than random.
+display_templates = Array( 
+	/* These are templates for each item in each column. 
+	 * Later will loop through these. This ensures that no matter how many phones are loaded, 
+	 * the pattern of one double-column row followed by two single column rows propogates throughout the columns irrespective of how many phones we have. 
+	 * This is just a suggestion for layout based on the template I was given, in a production environment phones could be tagged as 'promoted' to give double 
+	 * columns rather than randomly assigned, but this is good for keeping the layout interesting.
+	 * NB: In a full framework this would not be js variables but actual templates stored and loaded from elsewhere.
+	*/
 
 	// double column
 	'<div id="[id]" class="item double" style="background-image:url([background-image])"><div class="phone-overlay"><p>[name]</p><p>[price]</p></div></div>', 
@@ -20,17 +27,6 @@ display_templates = Array( // These are templates for each item in each column. 
 
 column_data = Array(); // This array will contain the html for each column in an indexed array 
 
-/*
- * Function: whenDocumentLoaded
- * Param fn string - name of function in the web browser
-*/
-function whenDocumentLoaded(fn) {
-	if (document.readyState != 'loading'){
-		fn();
-	} else {
-		document.addEventListener('DOMContentLoaded', fn);
-	}
-}
 
 /*
  * Function: loadPhones 
@@ -81,10 +77,10 @@ function loadPhones(){
 				// This serves two purposes - we don't start with a right floated column, and we can start at different points so that
 				// The template pattern of wide/thin doesn't simply repliate for each column. 
 				if (counter % phones_per_col==0){
-					if (template_start==null){ current_template=0;template_start=3; alert(template_start);}
-					else if (template_start==0){ current_template=0;template_start=3;}
-					else if (template_start==1){ current_template=1;template_start=0;}
-					else if (template_start==3){ current_template=3;template_start=1;}
+					if (template_start==null){ current_template=0;template_start=3; }
+					else if (template_start==0){ current_template=0;template_start=3; }
+					else if (template_start==1){ current_template=1;template_start=0; }
+					else if (template_start==3){ current_template=3;template_start=1; }
 	
 					console.log("Starting new column from " + current_template + ", next start is " + template_start);
 				}
@@ -185,15 +181,3 @@ function selectPhone(which){
 	
 }
 
-/*
- * Function: isInViewport
- * Param el (Object) - the page element
- * Meta: Tells us whether an element is in the part of the page currently displayed (without having to scroll etc)
-*/
-function isInViewport(el) {
-    var elemTop = el.getBoundingClientRect().top;
-    var elemBottom = el.getBoundingClientRect().bottom;
-
-    var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
-    return isVisible;
-}
